@@ -26,4 +26,9 @@ public class Health : MonoBehaviour
 			onDeath.Invoke();
 		}
 	}
+
+	public void takeDamage(int value)
+   {
+		amount -= value;
+   }
 }

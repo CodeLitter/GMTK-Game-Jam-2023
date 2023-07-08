@@ -9,17 +9,26 @@ using UnityEngine.Serialization;
 public class TouchDamage : MonoBehaviour
 {
 	public int amount = 1;
+	public float timeBetweenDamage = 2.0f;
 	public float force = 1;
 	public float stunTime = 1;
 	public string targetTag;
 
-	private void OnCollisionEnter2D(Collision2D other)
+	private float timeElapsedSinceLastDamageDealt = 0.0f;
+
+    private void FixedUpdate()
+    {
+		timeElapsedSinceLastDamageDealt += Time.fixedDeltaTime;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.transform.CompareTag(targetTag))
+		if (timeElapsedSinceLastDamageDealt >= timeBetweenDamage && other.transform.CompareTag(targetTag))
 		{
 			var health = other.transform.GetComponent<Health>();
 			health.amount -= amount;
 			StartCoroutine(Fling(other.transform));
+			timeElapsedSinceLastDamageDealt = 0.0f;
 		}
 	}
 
