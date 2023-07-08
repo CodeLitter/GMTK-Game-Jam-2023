@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using Vector2 = System.Numerics.Vector2;
 
 public class Cast : MonoBehaviour
 {
 	public Camera camera;
-	
+	public UnityEvent<Transform> onCast;
+	public UnityEvent<Vector2> onCastAtPoint;
+
 	public void OnFire(InputValue value)
 	{
 		var mousePos = Mouse.current.position.value;
@@ -15,13 +17,8 @@ public class Cast : MonoBehaviour
 		var hit = Physics2D.Raycast(worldPoint, UnityEngine.Vector2.zero);
 		if (hit.collider != null)
 		{
-			foreach (Transform child in transform)
-			{
-				if (child.gameObject.activeSelf)
-				{
-					child.SendMessage("OnCast", hit.transform, SendMessageOptions.RequireReceiver);
-				}
-			}
+			onCast.Invoke(hit.transform);
 		}
+		onCastAtPoint.Invoke(worldPoint);
 	}
 }

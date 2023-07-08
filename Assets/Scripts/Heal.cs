@@ -8,7 +8,8 @@ public class Heal : MonoBehaviour
 	
 	public void OnCast(Transform target)
 	{
-		var health = target.GetComponent<Health>();
-		health.amount += amount;
+		if (!enabled || !gameObject.activeSelf)
+			return;
+		target.transform.SendMessage("Heal", amount, SendMessageOptions.DontRequireReceiver);
 	}
 }

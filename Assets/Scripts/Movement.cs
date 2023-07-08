@@ -9,41 +9,61 @@ public class Movement : MonoBehaviour
 {
 	public Rigidbody2D rigidbody2D;
 	public Vector2 speed = Vector2.one;
-	private Vector2 velocity;
-	
+	public LayerMask floorLayers;
+	private Vector2 _velocity;
+	public bool _isGrounded;
+
 	private void Awake()
 	{
 		rigidbody2D = GetComponent<Rigidbody2D>();
+	}
+
+	private void Update()
+	{
+		var hit = Physics2D.Raycast(transform.position, Vector2.down, 1, floorLayers);
+		_isGrounded = (hit.collider != null);
 	}
 
 	private void FixedUpdate()
 	{
 		if (rigidbody2D.velocity.y > 0)
 		{
-			rigidbody2D.gravityScale = 1;
+			rigidbody2D.gravityScale = 1 / rigidbody2D.mass;
 		}
 		else
 		{
-			rigidbody2D.gravityScale = 2;
+			rigidbody2D.gravityScale = 2 / rigidbody2D.mass;
 		}
-		
+
 		var currentVelocity = rigidbody2D.velocity;
-		currentVelocity.x = velocity.x * (speed.x * Time.fixedDeltaTime);
-		rigidbody2D.velocity = currentVelocity;
+		if (_isGrounded || (int) Mathf.Sign(rigidbody2D.velocity.x) == (int) Mathf.Sign(_velocity.x))
+		{
+			currentVelocity.x = _velocity.x * (speed.x * Time.fixedDeltaTime) / rigidbody2D.mass;
+			rigidbody2D.velocity = currentVelocity;
+		}
+		else
+		{
+			rigidbody2D.AddForce(Vector2.right * (_velocity.x * speed.x * Time.fixedDeltaTime));
+		}
 	}
 
 	public void OnMove(InputValue value)
 	{
 		var input = value.Get<Vector2>();
-		velocity.x = input.x;
+		_velocity.x = input.x;
 	}
 
 	public void OnJump(InputValue value)
 	{
-		rigidbody2D.velocity = new Vector2(
-			rigidbody2D.velocity.x,
-			0
-		);
-		rigidbody2D.AddForce(Vector2.up * speed.y, ForceMode2D.Impulse);
+		if (!enabled)
+			return;
+		if (_isGrounded)
+		{
+			rigidbody2D.velocity = new Vector2(
+				rigidbody2D.velocity.x,
+				0
+			);
+			rigidbody2D.AddForce(Vector2.up * speed.y, ForceMode2D.Impulse);
+		}
 	}
 }
