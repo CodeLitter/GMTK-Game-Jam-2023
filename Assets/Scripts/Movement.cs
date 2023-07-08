@@ -28,22 +28,22 @@ public class Movement : MonoBehaviour
 	{
 		if (rigidbody2D.velocity.y > 0)
 		{
-			rigidbody2D.gravityScale = 1;
+			rigidbody2D.gravityScale = 1 / rigidbody2D.mass;
 		}
 		else
 		{
-			rigidbody2D.gravityScale = 2;
+			rigidbody2D.gravityScale = 2 / rigidbody2D.mass;
 		}
 
 		var currentVelocity = rigidbody2D.velocity;
 		if (_isGrounded || (int) Mathf.Sign(rigidbody2D.velocity.x) == (int) Mathf.Sign(_velocity.x))
 		{
-			currentVelocity.x = _velocity.x * (speed.x * Time.fixedDeltaTime);
+			currentVelocity.x = _velocity.x * (speed.x * Time.fixedDeltaTime) / rigidbody2D.mass;
 			rigidbody2D.velocity = currentVelocity;
 		}
 		else
 		{
-			rigidbody2D.AddForce(Vector2.right * (_velocity.x * (speed.x * Time.fixedDeltaTime)));
+			rigidbody2D.AddForce(Vector2.right * (_velocity.x * speed.x * Time.fixedDeltaTime));
 		}
 	}
 

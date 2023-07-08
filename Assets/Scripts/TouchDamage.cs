@@ -20,7 +20,7 @@ public class TouchDamage : MonoBehaviour
 		if (other.transform.CompareTag(targetTag))
 		{
 			var health = other.transform.GetComponent<Health>();
-			if (health.takeDamage(amount))
+			if (health.TakeDamage(amount))
 			{
 				health.StartCoroutine(Fling(other.transform));
 				onHit.Invoke();

@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
 		timeSinceLastDamageTaken += Time.fixedDeltaTime;
 	}
 
-	public bool takeDamage(int value)
+	public bool TakeDamage(int value)
 	{
 		if (timeSinceLastDamageTaken >= minimumTimeBetweenDamage)
 		{
@@ -41,5 +41,10 @@ public class Health : MonoBehaviour
 			return true;
 		}
 		return false;
+	}
+
+	public void Heal(int value)
+	{
+		amount += value;
 	}
 }

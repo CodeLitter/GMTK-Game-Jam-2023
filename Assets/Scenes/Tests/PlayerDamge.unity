@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e8d3e4326b1d24e9ee9a37335a0f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 2
   onTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -1409,6 +1409,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1383366566}
+  onCast:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1966899029}
+        m_TargetAssemblyTypeName: Heal, Assembly-CSharp
+        m_MethodName: OnCast
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCastAtPoint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1187249842}
+        m_TargetAssemblyTypeName: Slow, Assembly-CSharp
+        m_MethodName: OnCast
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1187249840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1418,6 +1448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1187249841}
+  - component: {fileID: 1187249842}
   m_Layer: 0
   m_Name: Spell (2)
   m_TagString: Untagged
@@ -1440,6 +1471,21 @@ Transform:
   m_Father: {fileID: 1185403658}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187249842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187249840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f3b67c106b81224993fac872adddba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 5
+  factor: 20
+  duration: 1
 --- !u!1 &1238258375
 GameObject:
   m_ObjectHideFlags: 0
