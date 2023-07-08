@@ -6,16 +6,17 @@ using UnityEngine;
 public class Mana : Singleton<Mana>
 {
 	public int amount = 10;
-	private int _max;
+
+	public int Max { get; private set; }
 
 	private void Awake()
 	{
-		_max = amount;
+		Max = amount;
 	}
 
 	private void Update()
 	{
-		amount = Mathf.Clamp(amount, 0, _max);
+		amount = Mathf.Clamp(amount, 0, Max);
 	}
 
 	public bool SpendMana(int cost)
@@ -28,7 +29,7 @@ public class Mana : Singleton<Mana>
 
 		return false;
 	}
-	
+
 	public void AddMana(int cost)
 	{
 		this.amount += cost;

@@ -10,19 +10,20 @@ public class Health : MonoBehaviour
 	public float minimumTimeBetweenDamage = 2.0f;
 	public UnityEvent onDeath;
 
-	private int max;
 	private float timeSinceLastDamageTaken = 0.0f;
+
+	public int Max { get; private set; }
 
 	private void Awake()
 	{
-		max = amount;
+		Max = amount;
 	}
 
 	private void Update()
 	{
-		if (amount > max)
+		if (amount > Max)
 		{
-			amount = max;
+			amount = Max;
 		}
 		if (amount <= 0)
 		{
