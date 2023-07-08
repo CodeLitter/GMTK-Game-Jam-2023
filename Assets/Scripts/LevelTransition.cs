@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelTransition : MonoBehaviour
 {
     public string levelName = "PleaseChangeMe";
+    private string menuSceneName = "MainMenu";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,5 +14,15 @@ public class LevelTransition : MonoBehaviour
         {
             SceneManager.LoadScene(levelName);
         }
+    }
+
+    public void manualLevelTransition()
+    {
+        SceneManager.LoadScene(levelName);
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
     }
 }
