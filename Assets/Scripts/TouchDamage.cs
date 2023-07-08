@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Collider2D))]
@@ -12,6 +13,7 @@ public class TouchDamage : MonoBehaviour
 	public float force = 1;
 	public float stunTime = 1;
 	public string targetTag;
+	public UnityEvent onHit;
 
     private void OnCollisionEnter2D(Collision2D other)
 	{
@@ -20,7 +22,8 @@ public class TouchDamage : MonoBehaviour
 			var health = other.transform.GetComponent<Health>();
 			if (health.takeDamage(amount))
 			{
-				StartCoroutine(Fling(other.transform));
+				health.StartCoroutine(Fling(other.transform));
+				onHit.Invoke();
 			}
 		}
 	}

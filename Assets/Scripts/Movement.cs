@@ -36,7 +36,7 @@ public class Movement : MonoBehaviour
 		}
 
 		var currentVelocity = rigidbody2D.velocity;
-		if (_isGrounded || (int)Mathf.Sign(rigidbody2D.velocity.x) == (int)Mathf.Sign(_velocity.x))
+		if (_isGrounded || (int) Mathf.Sign(rigidbody2D.velocity.x) == (int) Mathf.Sign(_velocity.x))
 		{
 			currentVelocity.x = _velocity.x * (speed.x * Time.fixedDeltaTime);
 			rigidbody2D.velocity = currentVelocity;
@@ -55,6 +55,8 @@ public class Movement : MonoBehaviour
 
 	public void OnJump(InputValue value)
 	{
+		if (!enabled)
+			return;
 		if (_isGrounded)
 		{
 			rigidbody2D.velocity = new Vector2(
