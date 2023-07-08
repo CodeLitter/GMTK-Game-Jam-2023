@@ -7,17 +7,21 @@ public class Slow : MonoBehaviour
 	public float radius = 1;
 	public float factor = 1;
 	public float duration = 1;
+	public int cost = 1;
 
 	public void OnCast(Vector2 position)
 	{
 		if (!enabled || !gameObject.activeSelf)
 			return;
-		var hits = Physics2D.OverlapCircleAll(position, radius);
-		if (hits != null)
+		if (Mana.Instance.SpendMana(cost))
 		{
-			foreach (var hit in hits)
+			var hits = Physics2D.OverlapCircleAll(position, radius);
+			if (hits != null)
 			{
-				StartCoroutine(ApplySlow(hit.transform));
+				foreach (var hit in hits)
+				{
+					StartCoroutine(ApplySlow(hit.transform));
+				}
 			}
 		}
 	}

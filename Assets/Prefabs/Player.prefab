@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 10
+  cost: 1
 --- !u!1 &4005172540648787529
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +347,7 @@ GameObject:
   - component: {fileID: 9139362211594425935}
   - component: {fileID: 5889424547805597177}
   - component: {fileID: 2983021717741128587}
+  - component: {fileID: 2655742208563174339}
   m_Layer: 0
   m_Name: Spells
   m_TagString: Untagged
@@ -454,6 +456,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2655742208563174339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4659658973201279148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18be3fe9641549a4c8dffd3cb0713d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 10
 --- !u!1 &9030318826208236631
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,3 +516,4 @@ MonoBehaviour:
   radius: 5
   factor: 20
   duration: 1
+  cost: 1
