@@ -6,18 +6,19 @@ using UnityEngine;
 public class FaceTarget : MonoBehaviour
 {
 	public Transform target;
+	public SpriteRenderer spriteRenderer;
 
 	private void Update()
 	{
-		var scale = transform.localScale;
 		if (target.position.x < transform.position.x)
 		{
-			scale.x = -1;
+			transform.rotation = Quaternion.Euler(0, 180, 0);
+			spriteRenderer.flipX = true;
 		}
 		else
 		{
-			scale.x = 1;
+			transform.rotation = Quaternion.Euler(0, 0, 0);
+			spriteRenderer.flipX = false;
 		}
-		transform.localScale = scale;
 	}
 }
