@@ -25,7 +25,7 @@ public class EnemyMovement : MonoBehaviour
         velocity.x = 30.0f * (movingLeft ? -1.0f : 1.0f);
         var currentVelocity = rigidbody2D.velocity;
         currentVelocity.x = velocity.x * (speed.x * Time.fixedDeltaTime);
-        rigidbody2D.velocity = currentVelocity;
+        rigidbody2D.velocity = currentVelocity / rigidbody2D.mass;
         
         if (movingLeft && (rigidbody2D.transform.position.x <= patrolPointLeft.position.x))
         {
