@@ -10,9 +10,11 @@ public class Movement : MonoBehaviour
 	public Rigidbody2D rigidbody2D;
 	public Collider2D collider2D;
 	public Vector2 speed = Vector2.one;
+	public int jumpCount = 1;
 	public LayerMask floorLayers;
 	private Vector2 _velocity;
 	public bool _isGrounded;
+	public int _currentJump;
 
 	private void Awake()
 	{
@@ -27,6 +29,10 @@ public class Movement : MonoBehaviour
 			Vector2.down, 0.25f,
 			floorLayers);
 		_isGrounded = (hit.collider != null);
+		if (_isGrounded)
+		{
+			_currentJump = 1;
+		}
 	}
 
 	private void FixedUpdate()
@@ -62,13 +68,14 @@ public class Movement : MonoBehaviour
 	{
 		if (!enabled)
 			return;
-		if (_isGrounded)
+		if (_isGrounded || _currentJump < jumpCount)
 		{
 			rigidbody2D.velocity = new Vector2(
 				rigidbody2D.velocity.x,
 				0
 			);
 			rigidbody2D.AddForce(Vector2.up * speed.y, ForceMode2D.Impulse);
+			_currentJump++;
 		}
 	}
 }
