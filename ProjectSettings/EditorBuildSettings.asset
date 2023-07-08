@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Tests/LevelTransition.unity
+    guid: de768b91c699aea4fa5ec8022d49a8d6
+  - enabled: 1
+    path: Assets/Scenes/Tests/TestMapScene.unity
+    guid: 5e2d9a2c33780b94fb27bcd79cc997ea
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6f502db8b1023754283b272df393e9b1, type: 2}
