@@ -6,14 +6,13 @@ using UnityEngine.InputSystem;
 
 public class Cast : MonoBehaviour
 {
-	public Camera camera;
 	public UnityEvent<Transform> onCast;
 	public UnityEvent<Vector2> onCastAtPoint;
 
 	public void OnFire(InputValue value)
 	{
 		var mousePos = Mouse.current.position.value;
-		var worldPoint = camera.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0));
+		var worldPoint = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 0));
 		var hit = Physics2D.Raycast(worldPoint, UnityEngine.Vector2.zero);
 		if (hit.collider != null)
 		{

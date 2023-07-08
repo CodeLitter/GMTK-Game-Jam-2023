@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
 	public Rigidbody2D rigidbody2D;
+	public Collider2D collider2D;
 	public Vector2 speed = Vector2.one;
 	public LayerMask floorLayers;
 	private Vector2 _velocity;
@@ -16,11 +17,15 @@ public class Movement : MonoBehaviour
 	private void Awake()
 	{
 		rigidbody2D = GetComponent<Rigidbody2D>();
+		collider2D = GetComponent<Collider2D>();
 	}
 
 	private void Update()
 	{
-		var hit = Physics2D.Raycast(transform.position, Vector2.down, 1, floorLayers);
+		var hit = Physics2D.Raycast(
+			transform.position + Vector3.down * collider2D.bounds.extents.y, 
+			Vector2.down, 0.25f,
+			floorLayers);
 		_isGrounded = (hit.collider != null);
 	}
 
