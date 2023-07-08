@@ -407,6 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 10
   cost: 1
+  effect: {fileID: 5811390402555353945, guid: 46a8173711b62da4ea9d2e62e604a0cb, type: 3}
 --- !u!1 &3240695962357303461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1800,6 +1801,7 @@ MonoBehaviour:
   factor: 20
   duration: 1
   cost: 1
+  effect: {fileID: 6113418983352829070, guid: 7a95f32045ed39a4fbd0a186e68aeae2, type: 3}
 --- !u!1 &9142820197125934004
 GameObject:
   m_ObjectHideFlags: 0

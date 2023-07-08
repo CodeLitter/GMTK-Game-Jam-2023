@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Slow : MonoBehaviour
@@ -8,6 +7,7 @@ public class Slow : MonoBehaviour
 	public float factor = 1;
 	public float duration = 1;
 	public int cost = 1;
+	public Transform effect;
 
 	public void OnCast(Vector2 position)
 	{
@@ -31,6 +31,7 @@ public class Slow : MonoBehaviour
 		var rb2d = target.GetComponent<Rigidbody2D>();
 		if (rb2d != null)
 		{
+			Instantiate(effect, target.position, Quaternion.identity, target);
 			var prevMass = rb2d.mass;
 			rb2d.mass = factor;
 			rb2d.velocity *=  prevMass / factor;
