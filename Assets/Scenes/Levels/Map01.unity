@@ -560,6 +560,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 543099147586101712, guid: 8548d65bc113f6149bc955f90964a463, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2548703389632100722, guid: 8548d65bc113f6149bc955f90964a463, type: 3}
       propertyPath: m_Name
       value: CameraRig
