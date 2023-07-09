@@ -7,5 +7,15 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Zombie
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: a4cfcc8a3fa19f847a49781602c37222, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: e4f930bebb70bc9409e313d8fe4aefbe, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 81a57b07e46628e46bd9fdb880f97eed, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 898ed6fe82bf4b447b78ad278c9f93e0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2e38e147a0cffc84e8a7a6fb62d2bde6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9369522ed19618f4da7149d482fb00bd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b6c879285717df74cbde2dc7af1997d2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2c26750ab40cee04f8088a1fc5bd76c6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7ac7f19bbc6c98e4ba93dbc045c64f10, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 629fca0c347198a4894b1478d11edb7d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b6c879285717df74cbde2dc7af1997d2, type: 2}
