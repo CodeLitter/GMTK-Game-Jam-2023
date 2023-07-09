@@ -11,7 +11,8 @@ public class Health : MonoBehaviour
 	public UnityEvent onHurt;
 	public UnityEvent onDeath;
 
-	private float timeSinceLastDamageTaken = 0.0f;
+	private float _timeSinceLastDamageTaken = 0.0f;
+	private float _prevAmount;
 
 	public int Max { get; private set; }
 
@@ -31,16 +32,25 @@ public class Health : MonoBehaviour
 			onDeath.Invoke();
 		}
 
-		timeSinceLastDamageTaken += Time.fixedDeltaTime;
+		_timeSinceLastDamageTaken += Time.fixedDeltaTime;
+	}
+
+	private void LateUpdate()
+	{
+		if (amount < _prevAmount)
+		{
+			onHurt.Invoke();
+		}
+
+		_prevAmount = amount;
 	}
 
 	public bool TakeDamage(int value)
 	{
-		if (timeSinceLastDamageTaken >= minimumTimeBetweenDamage)
+		if (_timeSinceLastDamageTaken >= minimumTimeBetweenDamage)
 		{
 			amount -= value;
-			timeSinceLastDamageTaken = 0.0f;
-			onHurt.Invoke();
+			_timeSinceLastDamageTaken = 0.0f;
 			return true;
 		}
 		return false;
