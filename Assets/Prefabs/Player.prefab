@@ -405,8 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ad854640cb1e2941966f24548e15082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 10
-  cost: 1
+  amount: -5
+  cost: 3
   effect: {fileID: 5811390402555353945, guid: 46a8173711b62da4ea9d2e62e604a0cb, type: 3}
 --- !u!1 &3240695962357303461
 GameObject:
@@ -903,8 +903,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 0}
   collider2D: {fileID: 0}
-  speed: {x: 100, y: 5}
-  jumpCount: 1
+  speed: {x: 200, y: 5}
+  jumpCount: 2
   floorLayers:
     serializedVersion: 2
     m_Bits: 8
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59e8d3e4326b1d24e9ee9a37335a0f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 5
+  delay: 7
   onTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -1924,10 +1924,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
-  factor: 20
-  duration: 1
-  cost: 1
-  effect: {fileID: 6113418983352829070, guid: 7a95f32045ed39a4fbd0a186e68aeae2, type: 3}
+  factor: 10
+  duration: 2
+  cost: 5
+  targetEffect: {fileID: 6113418983352829070, guid: 7a95f32045ed39a4fbd0a186e68aeae2, type: 3}
+  areaEffect: {fileID: 4515410101764965980, guid: 4e2893c191374e84f83649994b8fd4cc, type: 3}
 --- !u!1 &9142820197125934004
 GameObject:
   m_ObjectHideFlags: 0
