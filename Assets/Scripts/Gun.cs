@@ -9,7 +9,7 @@ public class Gun : MonoBehaviour
 
 	public void Shoot()
 	{
-		var instance = Instantiate(prefab, transform.position, Quaternion.identity);
+		var instance = Instantiate(prefab, transform.position, transform.rotation);
 		instance.GetComponent<Rigidbody2D>().AddForce(transform.right * speed, ForceMode2D.Impulse);
 	}
 }

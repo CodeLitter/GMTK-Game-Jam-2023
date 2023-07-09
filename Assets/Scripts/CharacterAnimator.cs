@@ -11,8 +11,8 @@ public class CharacterAnimator : MonoBehaviour
 
 	private void Awake()
 	{
-		animator = GetComponent<Animator>();
-		rigidbody2D = GetComponent<Rigidbody2D>();
+		animator = animator ? animator : GetComponent<Animator>();
+		rigidbody2D = rigidbody2D ? rigidbody2D : GetComponent<Rigidbody2D>();
 	}
 
 	private void Update()
@@ -24,12 +24,12 @@ public class CharacterAnimator : MonoBehaviour
 	{
 		animator.SetTrigger("Cast");
 	}
-	
+
 	public void TriggerHurt()
 	{
 		animator.SetTrigger("Hurt");
 	}
-	
+
 	public void TriggerDeath()
 	{
 		animator.SetTrigger("Death");
