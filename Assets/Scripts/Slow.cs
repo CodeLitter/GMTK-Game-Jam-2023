@@ -37,8 +37,11 @@ public class Slow : MonoBehaviour
 			rb2d.velocity *=  prevMass / factor;
 			rb2d.gravityScale *=  prevMass / factor;
 			yield return new WaitForSeconds(duration);
-			rb2d.mass = prevMass;
-			rb2d.gravityScale *= factor / prevMass;
+			if (rb2d != null)
+			{
+				rb2d.mass = prevMass;
+				rb2d.gravityScale *= factor / prevMass;
+			}
 			yield return null;
 		}
 	}

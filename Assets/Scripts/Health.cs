@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 {
 	public int amount = 10;
 	public float minimumTimeBetweenDamage = 2.0f;
+	public UnityEvent onHurt;
 	public UnityEvent onDeath;
 
 	private float timeSinceLastDamageTaken = 0.0f;
@@ -39,6 +40,7 @@ public class Health : MonoBehaviour
 		{
 			amount -= value;
 			timeSinceLastDamageTaken = 0.0f;
+			onHurt.Invoke();
 			return true;
 		}
 		return false;
