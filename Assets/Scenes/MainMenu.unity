@@ -1625,7 +1625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasFadeInOut: 0
-  levelName: TestMapScene
+  levelName: Map01
   fadeInOutImage: {fileID: 0}
 --- !u!114 &1869884421
 MonoBehaviour:

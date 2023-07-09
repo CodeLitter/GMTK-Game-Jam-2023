@@ -6,16 +6,28 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: 4f6f7cda309ca0b45b30b1ec5cf2e719
   - enabled: 1
-    path: Assets/Scenes/Tests/LevelTransition.unity
-    guid: de768b91c699aea4fa5ec8022d49a8d6
+    path: Assets/Scenes/Levels/Map01.unity
+    guid: e64553bbf92b1824185d2ac19ad885e8
   - enabled: 1
-    path: Assets/Scenes/Tests/TestMapScene.unity
-    guid: 5e2d9a2c33780b94fb27bcd79cc997ea
+    path: Assets/Scenes/Levels/Map02.unity
+    guid: d7c2807f588d3f74aa15ec6cc7cdf654
   - enabled: 1
-    path: Assets/Scenes/Tests/TestMapScene002.unity
-    guid: d87b8fcd24ac7654cb76116415b10572
+    path: Assets/Scenes/Levels/Map03.unity
+    guid: a67cd11cae2836546bb181db8dbae527
+  - enabled: 1
+    path: Assets/Scenes/Levels/Map04.unity
+    guid: 83e5d0356801c2a48870ab31b0f94575
+  - enabled: 1
+    path: Assets/Scenes/Levels/Map05.unity
+    guid: c4ca4a6e76f9d4141a3d2c834317f023
+  - enabled: 1
+    path: Assets/Scenes/Levels/Map06.unity
+    guid: d165689cc386e2d4b8f447dfe4a78801
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 6bd67df280156094c91192593e4039e2
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6f502db8b1023754283b272df393e9b1, type: 2}
