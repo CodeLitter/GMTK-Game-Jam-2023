@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class EnemyMovement : MonoBehaviour
@@ -15,6 +16,8 @@ public class EnemyMovement : MonoBehaviour
    public Transform patrolPointLeft;
    public Transform patrolPointRight;
    public Vector2 speed = Vector2.one;
+   public UnityEvent onPursue;
+   public UnityEvent onPatrol;
 
    private bool pursuingTarget = false;
    private Transform target;
@@ -44,6 +47,7 @@ public class EnemyMovement : MonoBehaviour
       {
          target = collision.gameObject.transform;
          pursuingTarget = true;
+         onPursue.Invoke();
       }
    }
 
@@ -53,11 +57,13 @@ public class EnemyMovement : MonoBehaviour
       {
          target = (Vector3.Distance(transform.position, patrolPointLeft.position) >= Vector3.Distance(transform.position, patrolPointRight.position) ? patrolPointLeft : patrolPointRight);
          pursuingTarget = false;
+         onPatrol.Invoke();
       }
       else if (collision.CompareTag("Player"))
       {
          target = null;
          pursuingTarget = false;
+         onPatrol.Invoke();
       }
    }
 
